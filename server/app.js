@@ -15,7 +15,8 @@ app.configure(function(){
 app.get('/build', function(req, res, next){
     var sys = require('sys')
     var exec = require('child_process').exec;
-    var execCommand = '/dev/YOUR_BUILD_COMMAND -with flags'
+    var execCommand = '/dev/YOUR_BUILD_COMMAND -with flags';
+    res.set('Content-Type', 'text/plain');
     function puts(error, stdout, stderr) {
         if(error){
             return next(new Error(error));
